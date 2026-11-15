@@ -1,0 +1,39 @@
+{
+  "name": "private-group-calendar",
+  "description": "Privater Gruppenkalender für Familie, WG oder Verein – Cloudflare Pages + D1",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:api": "vite build && wrangler pages dev --port 8788",
+    "build": "vite build",
+    "preview": "vite build && wrangler pages dev --port 8788",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p functions",
+    "db:create": "wrangler d1 create private-group-calendar",
+    "db:migrate:local": "wrangler d1 migrations apply private-group-calendar --local",
+    "db:migrate:remote": "wrangler d1 migrations apply private-group-calendar --remote",
+    "deploy": "vite build && wrangler pages deploy --branch main --commit-dirty=true"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261115.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^5.2.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^7.3.8",
+    "wrangler": "^4.162.0"
+  }
+}

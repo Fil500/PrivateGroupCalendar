@@ -1,0 +1,9 @@
+node_modules
+dist
+.wrangler
+.dev.vars
+*.log
+.DS_Store
+
+# eigene Bezeichnungen (siehe README, Abschnitt „Anpassen“)
+.env.local
